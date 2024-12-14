@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>💻Dashboard</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -20,24 +20,18 @@
   <div class='dashboard'>
     @include("includes.header")
     <div class='dashboard-app'>
-      <header class='dashboard-toolbar'>
-        <a href="#!" class="menu-toggle">
-          <i class="fas fa-bars"></i>
-        </a>
-        <a href="#" class="dashboard-nav-item1">
-          <i class="fas fa-user"></i>
-          Profile
-        </a>
-      </header>
+    @include("includes.menucart")
       <div class='dashboard-content'>
         <div class='container'>
-        <div class="title" style=" display: flex;justify-content: space-between; " >
-        <h3>Customers List</h3>
-        <button class="btn btn-primary " type="button" data-toggle="modal" data-target="#exampleModal" ><i class="fas fa-plus-square"></i> Add Category</button>
-        </div>
+          <div class="title" style=" display: flex;justify-content: space-between; ">
+            <h3>Categorys List</h3>
+            <button class="btn btn-primary " type="button" data-toggle="modal" data-target="#exampleModal"><i
+                class="fas fa-plus-square"></i> Add Category</button>
+          </div>
 
-        <!-- Modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -56,7 +50,7 @@
               </div>
             </div>
           </div>
-          <div class='card' style=" margin-top: 2%; " >
+          <div class='card' style=" margin-top: 2%; ">
             <div class='card-header'>
               <table class="table">
                 <thead class="thead-dark">
@@ -96,34 +90,13 @@
           </div>
           <div class='card-body'>
             @yield('content')
-            <!-- <p>Your account type is: Administrator</p> -->
           </div>
         </div>
       </div>
     </div>
   </div>
   </div>
-  <script>
-    const mobileScreen = window.matchMedia("(max-width: 990px )");
-    $(document).ready(function () {
-      $(".dashboard-nav-dropdown-toggle").click(function () {
-        $(this).closest(".dashboard-nav-dropdown")
-          .toggleClass("show")
-          .find(".dashboard-nav-dropdown")
-          .removeClass("show");
-        $(this).parent()
-          .siblings()
-          .removeClass("show");
-      });
-      $(".menu-toggle").click(function () {
-        if (mobileScreen.matches) {
-          $(".dashboard-nav").toggleClass("mobile-show");
-        } else {
-          $(".dashboard").toggleClass("dashboard-compact");
-        }
-      });
-    });
-  </script>
+  <script src="js/myscript.js"></script>
 </body>
 
 </html>
